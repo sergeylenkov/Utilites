@@ -1,6 +1,5 @@
 //
 //  UIImage+Utilites.h
-//  LocationMarker
 //
 //  Created by Sergey Lenkov on 30.05.11.
 //  Copyright 2011 Positive Team. All rights reserved.

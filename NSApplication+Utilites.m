@@ -58,4 +58,11 @@
     return NO;
 }
 
+- (void)redirectConsoleLogToDocumentFolder {
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *logPath = [documentsDirectory	stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.log", [[NSBundle mainBundle] bundleIdentifier]]];
+	freopen([logPath cStringUsingEncoding:NSASCIIStringEncoding],"a+", stderr);
+}
+
 @end

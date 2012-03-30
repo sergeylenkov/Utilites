@@ -11,5 +11,6 @@
 
 - (void)getSystemVersionMajor:(unsigned *)major minor:(unsigned *)minor bugFix:(unsigned *)bugFix;
 - (BOOL)isLion;
+- (void)redirectConsoleLogToDocumentFolder;
 
 @end

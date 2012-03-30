@@ -1,117 +1,13 @@
+//
+//  NSDate+Utilites.h
+//
+//  Created by Sergey Lenkov on 06.11.10.
+//  Copyright 2010 Positive Team. All rights reserved.
+//
+
 #import "NSDate+Utilites.h"
 
 @implementation NSDate (Utilites)
-
-- (NSString *)formattedDateWithYear:(BOOL)year {
-	NSCalendar *calendar = [NSCalendar currentCalendar];
-	[calendar setTimeZone:[NSTimeZone systemTimeZone]];
-	
-	NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:self];
-	
-	NSString *day;
-		
-	if (year) {
-		day = [NSString stringWithFormat:@"%d, %d", [components day], [components year]];
-	} else {
-		day = [NSString stringWithFormat:@"%d", [components day]];
-	}
-		
-	NSString *month = @"";
-		
-	switch ([components month]) {
-		case 1:
-			month = @"Jan";
-			break;
-		case 2:
-			month = @"Feb";
-			break;
-		case 3:
-			month = @"Mar";
-			break;
-		case 4:
-			month = @"Apr";
-			break;
-		case 5:
-			month = @"May";
-			break;
-		case 6:
-			month = @"Jun";
-			break;
-		case 7:
-			month = @"Jul";
-			break;
-		case 8:
-			month = @"Aug";
-			break;
-		case 9:
-			month = @"Sep";
-			break;
-		case 10:
-			month = @"Oct";
-			break;
-		case 11:
-			month = @"Nov";
-			break;
-		case 12:
-			month = @"Dec";
-			break;
-		default:
-			break;
-	}
-		
-	return [NSString stringWithFormat:@"%@ %@", month, day];
-}
-
-- (NSString *)formattedMonth {
-	NSCalendar *calendar = [NSCalendar currentCalendar];
-	NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit) fromDate:self];
-	
-	NSInteger year = [components year];
-	NSString *month = @"";
-	
-	switch ([components month]) {
-		case 1:
-			month = @"Jan";
-			break;
-		case 2:
-			month = @"Feb";
-			break;
-		case 3:
-			month = @"Mar";
-			break;
-		case 4:
-			month = @"Apr";
-			break;
-		case 5:
-			month = @"May";
-			break;
-		case 6:
-			month = @"Jun";
-			break;
-		case 7:
-			month = @"Jul";
-			break;
-		case 8:
-			month = @"Aug";
-			break;
-		case 9:
-			month = @"Sep";
-			break;
-		case 10:
-			month = @"Oct";
-			break;
-		case 11:
-			month = @"Nov";
-			break;
-		case 12:
-			month = @"Dec";
-			break;
-		default:
-			break;
-	}
-	
-	return [NSString stringWithFormat:@"%@ %d", month, year];
-}
 
 - (NSDate *)truncate {
 	NSCalendar *calendar = [NSCalendar currentCalendar];

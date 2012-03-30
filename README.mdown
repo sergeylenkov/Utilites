@@ -15,3 +15,45 @@
 - (NSString *)bitFormat; - return bit representation (Kbps, Mbps etc) of number
 - (NSString *)durationFormatWithHours; - return time representation (hh:mm:ss) of number
 - (NSString *)durationFormatWithMinutes; - return time representation (mm:ss) of number
+
+#### NSDate+Utilites
+
+- (NSDate *)truncate; - set hours, minutes and seconds to 0
+- (NSDate *)dateByAddingHours:(NSInteger)hours; - return date by adding hours to date
+- (NSDate *)dateByAddingMinutes:(NSInteger)minutes; - return date by adding some minutes to date
+- (NSDate *)dateByAddingDays:(NSInteger)days; - return date by adding some days to date
+- (NSDate *)dateByAddingMonths:(NSInteger)months; - return date by adding some month to date
+- (NSInteger)daysCountBetweenDate:(NSDate *)date; - return count of days between to dates
+- (NSString *)dbDateFormat; - return date representation in "yyyy-dd-mm" format
+- (NSString *)shortDateFormat; - return date representation in NSDateFormatterShortStyle format
+- (NSString *)mediumDateFormat; - return date representation in NSDateFormatterMediumStyle format
+- (NSString *)longDateFormat; - return date representation in NSDateFormatterLongStyle format
+- (NSString *)longDateFormatWithTime; - return date representation in NSDateFormatterLongStyle with time in NSDateFormatterShortStyle format
+- (NSString *)fullDateFormat; - return date representation in NSDateFormatterFullStyle format
+- (NSString *)timeFormat; - return time representation in "hh:mm" format
+- (NSString *)shortMonthName; - return short name of month in English
+- (NSString *)monthName; - return full name of month in English
+- (NSInteger)year; - return year
+- (NSInteger)month; - return month
+- (NSInteger)day; - return day
+- (NSInteger)hour; - return hour
+- (NSInteger)minute; - return minute
+- (NSInteger)week; - return number of week
+- (NSInteger)weekday; - return number of weekday
++ (NSDate *)dateFromDbString:(NSString *)db; - convert "yyyy-dd-mm" string to date
++ (NSDate *)dateFromRFC1123:(NSString *)rfc; - convert RFC1123 string to date
++ (NSDate *)dateFromTZ:(NSString *)tz; - convert "yyyy-MM-dd'T'HH:mm:ss'Z'" string to date
++ (NSDate *)dateFromUTCString:(NSString *)utc;- convert "yyyy-MM-dd HH:mm:ss" string to date. UTC time zone
+- (NSString *)UTCString; - return date representation in "yyyy-MM-dd HH:mm:ss" format. UTC time zone
+- (NSString *)UTCStringWithMilliseconds; - return date representation in "yyyy-MM-dd HH:mm:ss.SSS" format. UTC time zone
+
+#### NSApplication+Utilites.h
+
+- (void)getSystemVersionMajor:(unsigned *)major minor:(unsigned *)minor bugFix:(unsigned *)bugFix; - return system version
+- (BOOL)isLion;
+- (void)redirectConsoleLogToDocumentFolder; - redirect NSLog() output to file ~/Documents/Bundle Identifier.log
+
+#### UIImage+Utilites
+
+- (UIImage *)scaleAndRotateWithReslution:(int)resolution; - proportionally scale image by given max resolution
+- (UIImage *)imageByCroppingToRect:(CGRect)rect; - cropping image to rect

@@ -1,9 +1,14 @@
+//
+//  NSDate+Utilites.h
+//
+//  Created by Sergey Lenkov on 06.11.10.
+//  Copyright 2010 Positive Team. All rights reserved.
+//
+
 #import <Foundation/Foundation.h>
 
 @interface NSDate (Utilites)
 
-- (NSString *)formattedDateWithYear:(BOOL)year;
-- (NSString *)formattedMonth;
 - (NSDate *)truncate;
 - (NSDate *)dateByAddingHours:(NSInteger)hours;
 - (NSDate *)dateByAddingMinutes:(NSInteger)minutes;

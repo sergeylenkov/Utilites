@@ -1,6 +1,5 @@
 //
 //  WebView+Utilites.m
-//  ZoomBrowser
 //
 //  Created by Sergey Lenkov on 28.10.10.
 //  Copyright 2010 Positive Team. All rights reserved.
