@@ -1,0 +1,17 @@
+### Utilites for some cocoa classes
+
+#### WebView+Utilites
+
+- (NSImage *)snapshot; - create web page snapshot
+
+#### NSMutableArray+Utilites
+
+- (void)reverse; - reverse array
+
+#### NSNumber+Utilites
+
+- (NSString *)moneyFormat; - return money representation (1 000 000,00) of number
+- (NSString *)byteFormat; - return bytes representation (KB, MB etc) of number
+- (NSString *)bitFormat; - return bit representation (Kbps, Mbps etc) of number
+- (NSString *)durationFormatWithHours; - return time representation (hh:mm:ss) of number
+- (NSString *)durationFormatWithMinutes; - return time representation (mm:ss) of number
