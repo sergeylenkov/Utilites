@@ -10,11 +10,11 @@
 
 #### NSNumber+Utilites
 
-	- (NSString *)moneyFormat; - return money representation (1 000 000,00) of number
-	- (NSString *)byteFormat; - return bytes representation (KB, MB etc) of number
-	- (NSString *)bitFormat; - return bit representation (Kbps, Mbps etc) of number
-	- (NSString *)durationFormatWithHours; - return time representation (hh:mm:ss) of number
-	- (NSString *)durationFormatWithMinutes; - return time representation (mm:ss) of number
+	- (NSString *)moneyRepresentation; - return money representation (1 000 000,00) of number
+	- (NSString *)byteRepresentation; - return bytes representation (KB, MB etc) of number
+	- (NSString *)bitRepresentation; - return bit representation (Kbps, Mbps etc) of number
+	- (NSString *)durationRepresentationWithHours; - return time representation (hh:mm:ss) of number
+	- (NSString *)durationRepresentationWithMinutes; - return time representation (mm:ss) of number
 
 #### NSDate+Utilites
 
@@ -24,15 +24,17 @@
 	- (NSDate *)dateByAddingDays:(NSInteger)days; - return date by adding some days to date
 	- (NSDate *)dateByAddingMonths:(NSInteger)months; - return date by adding some month to date
 	- (NSInteger)daysCountBetweenDate:(NSDate *)date; - return count of days between to dates
-	- (NSString *)dbDateFormat; - return date representation in "yyyy-dd-mm" format
-	- (NSString *)shortDateFormat; - return date representation in NSDateFormatterShortStyle format
-	- (NSString *)mediumDateFormat; - return date representation in NSDateFormatterMediumStyle format
-	- (NSString *)longDateFormat; - return date representation in NSDateFormatterLongStyle format
-	- (NSString *)longDateFormatWithTime; - return date representation in NSDateFormatterLongStyle with time in NSDateFormatterShortStyle format
-	- (NSString *)fullDateFormat; - return date representation in NSDateFormatterFullStyle format
-	- (NSString *)timeFormat; - return time representation in "hh:mm" format
+	- (NSString *)dbDateRepresentation; - return date representation in "yyyy-dd-mm" format
+	- (NSString *)shortDateRepresentation; - return date representation in NSDateFormatterShortStyle format
+	- (NSString *)mediumDateRepresentation; - return date representation in NSDateFormatterMediumStyle format
+	- (NSString *)longDateRepresentation; - return date representation in NSDateFormatterLongStyle format
+	- (NSString *)longDateRepresentationWithTime; - return date representation in NSDateFormatterLongStyle with time in NSDateFormatterShortStyle format
+	- (NSString *)fullDateRepresentation; - return date representation in NSDateFormatterFullStyle format
+	- (NSString *)timeRepresentation; - return time representation in "hh:mm" format
+	- (NSString *)systemTimeRepresentation; - return time representation in system time format
 	- (NSString *)shortMonthName; - return short name of month
 	- (NSString *)monthName; - return full name of month
+	- (NSString *)weekDayName; - return week day name
 	- (NSInteger)year; - return year
 	- (NSInteger)month; - return month
 	- (NSInteger)day; - return day
@@ -51,6 +53,7 @@
 
 	- (void)getSystemVersionMajor:(unsigned *)major minor:(unsigned *)minor bugFix:(unsigned *)bugFix; - return system version
 	- (BOOL)isLion;
+	- (BOOL)isMountainLion;
 	- (void)redirectConsoleLogToDocumentFolder; - redirect NSLog() output to file ~/Documents/Bundle Identifier.log
 
 #### UIImage+Utilites
