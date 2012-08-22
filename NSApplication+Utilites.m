@@ -2,7 +2,7 @@
 //  NSApplication+Utilites.m
 //
 //  Created by Sergey Lenkov on 01.08.11.
-//  Copyright 2011 Positive Team. All rights reserved.
+//  Copyright 2011 Sergey Lenkov. All rights reserved.
 //
 
 #import "NSApplication+Utilites.h"
@@ -51,7 +51,18 @@
     unsigned major, minor, bugFix;
     [self getSystemVersionMajor:&major minor:&minor bugFix:&bugFix];
     
-    if (major == 10 && minor >= 7) {
+    if (major == 10 && minor == 7) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)isMountainLion {
+    unsigned major, minor, bugFix;
+    [self getSystemVersionMajor:&major minor:&minor bugFix:&bugFix];
+    
+    if (major == 10 && minor == 8) {
         return YES;
     }
     

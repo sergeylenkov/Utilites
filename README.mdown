@@ -31,8 +31,8 @@
 	- (NSString *)longDateFormatWithTime; - return date representation in NSDateFormatterLongStyle with time in NSDateFormatterShortStyle format
 	- (NSString *)fullDateFormat; - return date representation in NSDateFormatterFullStyle format
 	- (NSString *)timeFormat; - return time representation in "hh:mm" format
-	- (NSString *)shortMonthName; - return short name of month in English
-	- (NSString *)monthName; - return full name of month in English
+	- (NSString *)shortMonthName; - return short name of month
+	- (NSString *)monthName; - return full name of month
 	- (NSInteger)year; - return year
 	- (NSInteger)month; - return month
 	- (NSInteger)day; - return day

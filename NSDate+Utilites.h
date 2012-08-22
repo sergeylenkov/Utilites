@@ -2,7 +2,6 @@
 //  NSDate+Utilites.h
 //
 //  Created by Sergey Lenkov on 06.11.10.
-//  Copyright 2010 Positive Team. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -15,15 +14,17 @@
 - (NSDate *)dateByAddingDays:(NSInteger)days;
 - (NSDate *)dateByAddingMonths:(NSInteger)months;
 - (NSInteger)daysCountBetweenDate:(NSDate *)date;
-- (NSString *)dbDateFormat;
-- (NSString *)shortDateFormat;
-- (NSString *)mediumDateFormat;
-- (NSString *)longDateFormat;
-- (NSString *)longDateFormatWithTime;
-- (NSString *)fullDateFormat;
-- (NSString *)timeFormat;
+- (NSString *)dbDateRepresentation;
+- (NSString *)shortDateRepresentation;
+- (NSString *)mediumDateRepresentation;
+- (NSString *)longDateRepresentation;
+- (NSString *)longDateRepresentationWithTime;
+- (NSString *)fullDateRepresentation;
+- (NSString *)timeRepresentation;
+- (NSString *)systemTimeRepresentation;
 - (NSString *)shortMonthName;
 - (NSString *)monthName;
+- (NSString *)weekDayName;
 - (NSInteger)year;
 - (NSInteger)month;
 - (NSInteger)day;
@@ -37,5 +38,6 @@
 + (NSDate *)dateFromUTCString:(NSString *)utc;
 - (NSString *)UTCString;
 - (NSString *)UTCStringWithMilliseconds;
+- (BOOL)isToday;
 
 @end

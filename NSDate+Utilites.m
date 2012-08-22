@@ -2,7 +2,6 @@
 //  NSDate+Utilites.h
 //
 //  Created by Sergey Lenkov on 06.11.10.
-//  Copyright 2010 Positive Team. All rights reserved.
 //
 
 #import "NSDate+Utilites.h"
@@ -61,38 +60,38 @@
 	NSDateComponents *components = [calendar components:NSDayCalendarUnit fromDate:[self truncate] toDate:[date truncate] options:0];
     [calendar release];
     
-	return [components day];
+	return abs([components day]);
 }
 
-- (NSString *)dbDateFormat {
+- (NSString *)dbDateRepresentation {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:self];
 
-    return [NSString stringWithFormat:@"%d-%.2d-%.2d", [components year], [components month], [components day]];
+    return [NSString stringWithFormat:@"%ld-%.2ld-%.2ld", [components year], [components month], [components day]];
 }
 
-- (NSString *)shortDateFormat {
+- (NSString *)shortDateRepresentation {
     NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
 	[dateFormatter setDateStyle:NSDateFormatterShortStyle];
     
     return [dateFormatter stringFromDate:self];
 }
 
-- (NSString *)mediumDateFormat {
+- (NSString *)mediumDateRepresentation {
     NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
 	[formatter setDateStyle:NSDateFormatterMediumStyle];
     
     return [formatter stringFromDate:self];
 }
 
-- (NSString *)longDateFormat {
+- (NSString *)longDateRepresentation {
     NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
 	[formatter setDateStyle:NSDateFormatterLongStyle];
     
     return [formatter stringFromDate:self];
 }
 
-- (NSString *)longDateFormatWithTime {
+- (NSString *)longDateRepresentationWithTime {
     NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
 	[formatter setDateStyle:NSDateFormatterLongStyle];
     [formatter setTimeStyle:NSDateFormatterShortStyle];
@@ -100,36 +99,45 @@
     return [formatter stringFromDate:self];
 }
 
-- (NSString *)fullDateFormat {
+- (NSString *)fullDateRepresentation {
     NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
 	[formatter setDateStyle:NSDateFormatterFullStyle];
     
     return [formatter stringFromDate:self];
 }
 
-- (NSString *)timeFormat {
+- (NSString *)timeRepresentation {
     NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
     [formatter setDateFormat:@"HH:mm"];
     
     return [formatter stringFromDate:self];
 }
 
-- (NSString *)shortMonthName {
-    NSLocale *locale = [[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] autorelease];    
+- (NSString *)systemTimeRepresentation {
     NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+    [formatter setDateStyle:NSDateFormatterNoStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
     
+    return [formatter stringFromDate:self];
+}
+
+- (NSString *)shortMonthName {
+    NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
     [formatter setDateFormat:@"MMM"];
-    [formatter setLocale:locale];
     
     return [formatter stringFromDate:self];
 }
 
 - (NSString *)monthName {
-    NSLocale *locale = [[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] autorelease];    
     NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
-    
     [formatter setDateFormat:@"MMMM"];
-    [formatter setLocale:locale];
+    
+    return [formatter stringFromDate:self];
+}
+
+- (NSString *)weekDayName {
+    NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
+    [formatter setDateFormat:@"EEEE"];
     
     return [formatter stringFromDate:self];
 }
@@ -235,6 +243,14 @@
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss.SSS"];
     
     return [formatter stringFromDate:self];
+}
+
+- (BOOL)isToday {
+    if ([[self truncate] isEqualToDate:[[NSDate date] truncate]]) {
+        return YES;
+    }
+    
+    return NO;
 }
 
 @end

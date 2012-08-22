@@ -2,14 +2,13 @@
 //  NSNumber+Utilites.m
 //
 //  Created by Sergey Lenkov on 06.11.10.
-//  Copyright 2010 Positive Team. All rights reserved.
 //
 
 #import "NSNumber+Utilites.h"
 
 @implementation NSNumber (Utilites)
 
-- (NSString *)moneyFormat {
+- (NSString *)moneyRepresentation {
     NSNumberFormatter *formatter = [[[NSNumberFormatter alloc] init] autorelease];
 	
 	[formatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
@@ -19,11 +18,11 @@
     return [formatter stringFromNumber:self];
 }
 
-- (NSString *)byteFormat {
+- (NSString *)byteRepresentation {
     unsigned long long size = [self longLongValue];
     
     if (size < 999) {
-        return [NSString stringWithFormat:@"%.2f KB", size];
+        return [NSString stringWithFormat:@"%.2f KB", (float)size];
     }
     
     if (size < 999999999) {
@@ -37,11 +36,11 @@
     return [NSString stringWithFormat:@"%.2f TB", size / 1099511627776.0];
 }
 
-- (NSString *)bitFormat {
+- (NSString *)bitRepresentation {
     unsigned long long size = [self longLongValue];
     
     if (size < 999) {
-        return [NSString stringWithFormat:@"%.2f Kbps", size];
+        return [NSString stringWithFormat:@"%.2f Kbps", (float)size];
     }
     
     if (size < 999999999) {
@@ -55,7 +54,7 @@
     return [NSString stringWithFormat:@"%.2f Tbps", size / 1000000000000.0];
 }
 
-- (NSString *)durationFormatWithHours {
+- (NSString *)durationRepresentationWithHours {
     int totalSeconds = [self intValue];
     
     int hours = totalSeconds / 3600;
@@ -65,7 +64,7 @@
     return [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
 }
 
-- (NSString *)durationFormatWithMinutes {
+- (NSString *)durationRepresentationWithMinutes {
     int totalSeconds = [self intValue];
     
     int minutes = totalSeconds / 60;
